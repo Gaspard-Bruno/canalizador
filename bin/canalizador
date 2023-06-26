@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+require 'canalizador'
+require 'canalizador/version'
+
+case ARGV[0]
+when 'generate_release_notes'
+  puts Canalizador.generate_release_notes(ARGV[1], ARGV[2])
+when 'upload_certificates_and_profiles'
+  puts Canalizador.upload_certificates_and_profiles(ARGV[1])
+else
+  puts 'need to specify which runner'
+end
