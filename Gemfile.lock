@@ -2,6 +2,9 @@ PATH
   remote: .
   specs:
     canalizador (0.1.0)
+      dotenv (~> 2.7.6)
+      fastlane (~> 2)
+      httparty (~> 0.20.0)
 
 GEM
   remote: https://rubygems.org/
@@ -222,6 +225,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-darwin-21
 
 DEPENDENCIES
   canalizador!

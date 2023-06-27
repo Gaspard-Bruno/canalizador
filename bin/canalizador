@@ -10,6 +10,9 @@ when 'generate_release_notes'
   puts Canalizador.generate_release_notes(ARGV[1], ARGV[2])
 when 'upload_certificates_and_profiles'
   puts Canalizador.upload_certificates_and_profiles(ARGV[1])
+when 'fetch_certificates_and_profiles'
+  app_bundle_ids = ARGV[1].split(',')
+  puts Canalizador.fetch_certificates_and_profiles(app_bundle_ids)
 else
   puts 'need to specify which runner'
 end

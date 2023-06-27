@@ -66,5 +66,18 @@ module Canalizador
       files_to_commit = Dir[File.join(storage.working_directory, '**', '*.{cer,p12,mobileprovision,provisionprofile}')]
       storage.save_changes!(files_to_commit: files_to_commit)
     end
+
+    def self.fetch_certificates_and_profiles(app_bundle_ids)
+      Canalizador::Utils.validate_environment_variables(
+        'IOS_PROFILES_AND_CERTIFICATES_REPO_URL',
+        'MATCH_PASSWORD'
+      )
+  
+      git_url(ENV['IOS_PROFILES_AND_CERTIFICATES_REPO_URL'])
+  
+      match(app_identifier: app_bundle_ids, type: 'development', readonly: true, generate_apple_certs: false)
+      match(app_identifier: app_bundle_ids, type: 'adhoc', readonly: true, generate_apple_certs: false)
+      match(app_identifier: app_bundle_ids, type: 'appstore', readonly: true, generate_apple_certs: false)
+    end
   end
 end

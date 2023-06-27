@@ -15,4 +15,8 @@ module Canalizador
   def self.upload_certificates_and_profiles(type)
     IosUtils.upload_certificates_and_profiles(type)
   end
+
+  def self.fetch_certificates_and_profiles(app_bundle_ids)
+    IosUtils.fetch_certificates_and_profiles(app_bundle_ids)
+  end
 end
