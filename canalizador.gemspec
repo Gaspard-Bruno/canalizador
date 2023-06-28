@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.require_path = 'lib'
   spec.executables = ['canalizador']
 
-  spec.add_dependency('dotenv', '~> 2.7.6')
+  spec.add_dependency('dotenv', '~> 2')
   spec.add_dependency('fastlane', '~> 2')
   spec.add_dependency('httparty', '~> 0.20.0')
 end
