@@ -72,12 +72,33 @@ module Canalizador
         'IOS_PROFILES_AND_CERTIFICATES_REPO_URL',
         'MATCH_PASSWORD'
       )
-  
-      git_url(ENV['IOS_PROFILES_AND_CERTIFICATES_REPO_URL'])
-  
-      match(app_identifier: app_bundle_ids, type: 'development', readonly: true, generate_apple_certs: false)
-      match(app_identifier: app_bundle_ids, type: 'adhoc', readonly: true, generate_apple_certs: false)
-      match(app_identifier: app_bundle_ids, type: 'appstore', readonly: true, generate_apple_certs: false)
+
+      git_url = ENV['IOS_PROFILES_AND_CERTIFICATES_REPO_URL']
+
+      Match::Runner.new.run(
+        storage_mode: 'git',
+        git_url: git_url,
+        git_branch: 'master',
+        app_identifier: app_bundle_ids,
+        type: 'development',
+        readonly: true
+      )
+      Match::Runner.new.run(
+        storage_mode: 'git',
+        git_url: git_url,
+        git_branch: 'master',
+        app_identifier: app_bundle_ids,
+        type: 'adhoc',
+        readonly: true
+      )
+      Match::Runner.new.run(
+        storage_mode: 'git',
+        git_url: git_url,
+        git_branch: 'master',
+        app_identifier: app_bundle_ids,
+        type: 'appstore',
+        readonly: true
+      )
     end
   end
 end
