@@ -81,7 +81,8 @@ module Canalizador
         git_branch: 'master',
         app_identifier: app_bundle_ids,
         type: 'development',
-        readonly: true
+        readonly: true,
+        keychain_name: 'login.keychain'
       )
       Match::Runner.new.run(
         storage_mode: 'git',
@@ -89,7 +90,8 @@ module Canalizador
         git_branch: 'master',
         app_identifier: app_bundle_ids,
         type: 'adhoc',
-        readonly: true
+        readonly: true,
+        keychain_name: 'login.keychain'
       )
       Match::Runner.new.run(
         storage_mode: 'git',
@@ -97,7 +99,8 @@ module Canalizador
         git_branch: 'master',
         app_identifier: app_bundle_ids,
         type: 'appstore',
-        readonly: true
+        readonly: true,
+        keychain_name: 'login.keychain'
       )
     end
   end
